@@ -40,6 +40,17 @@ var getJSONData = function(url){
     });
 }
 
+
+var pasoPorLogin = localStorage.getItem("boolean");
+
+
+function irLogin() {
+  if(pasoPorLogin <= 0)
+    window.location.href="login.html";
+ }
+
+ irLogin();
+ 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
