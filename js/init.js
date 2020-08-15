@@ -45,7 +45,7 @@ var pasoPorLogin = localStorage.getItem("boolean");
 
 
 function irLogin() {
-  if(pasoPorLogin <= 0)
+  if(pasoPorLogin != "true")
     window.location.href="login.html";
  }
 

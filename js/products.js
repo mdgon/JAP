@@ -1,12 +1,13 @@
 var productsArray = [];
+
 function showProductsList(array) {
 
-    let htmlContentToAppend = "";
+    let articulo = "";
     for (let i = 0; i < array.length; i++) {
         let product = array[i];
 
-        htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
+        articulo += `
+        <div class="list-group-item">
             <div class="row">
                 <div class="col-3">
                     <img src="` + product.imgSrc + `" class="img-thumbnail">
@@ -14,14 +15,18 @@ function showProductsList(array) {
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
                         <h4 class="mb-1">` + product.name + `</h4>
-                        <small class="text-muted">` + product.currency +` `+ product.cost + `</small>
+                        <small class="text-muted">Vendidos `+ product.soldCount + `</small>
                     </div>
                     <div>` + product.description + `</div>
+                    
                 </div>
+            </div>
+            <div class="row col-9 float-right">
+                <div class=""><b>USD 13500</b></div>
             </div>
         </div>
         `
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        document.getElementById("lista-productos").innerHTML = articulo;
     }
 }
 

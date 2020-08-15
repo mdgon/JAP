@@ -1,9 +1,8 @@
-localStorage.setItem("boolean", 0);
-var i = 0
+localStorage.setItem("boolean", false);
+
 
 function ingresarHomePage(){
-i++;
-localStorage.setItem("boolean", i);
+localStorage.setItem("boolean", true);
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
