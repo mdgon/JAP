@@ -22,7 +22,7 @@ function showProductsList(array) {
                 </div>
             </div>
             <div class="row col-9 float-right">
-                <div class=""><b>`+ product.currency + ` ` + product.cost `</b></div>
+                <div class=""><b>`+ product.currency + ` ` + product.cost +`</b></div>
             </div>
         </div>
         `
