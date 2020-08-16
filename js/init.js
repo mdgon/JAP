@@ -52,12 +52,13 @@ function irLogin() {
 
  irLogin();
 
-if (urlActual == "https://mdgon.github.io/JAP/index.html" && pasoPorLogin == "true") {
-  alert("Inicio sesion con el mail: " + emailLog)
-}
+
  
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  if (urlActual == "https://mdgon.github.io/JAP/index.html" && pasoPorLogin == "true") {
+  alert("Inicio sesion con el mail: " + emailLog)
+}
 });
