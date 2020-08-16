@@ -41,11 +41,9 @@
             </div>
             <button type="summit" class="btn btn-primary btn-login" onsubmit="ingresarHomePage()">Ingresar</button>
 
-            <div><p class="separador"><s></s> o tambien puedes <s></s></p></div>
+            <div><p class="separador"><s></s> O ingresar con Google <s></s></p></div>
             
             <div class="g-signin2 text-dialog btnLogGoogle" data-onsuccess="onSignIn2"></div>
-            
-
           </form>
         </div>
       </div>
@@ -60,16 +58,5 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/login.js"></script>
-
-
-  <script>
-    function onSignIn2(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
-  </script>
 </body>
 </html>
