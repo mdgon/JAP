@@ -52,7 +52,7 @@ function irLogin() {
 
  irLogin();
 
-if (urlActual == "https://mdgon.github.io/JAP/index.html?" && pasoPorLogin == "true") {
+if (urlActual == "https://mdgon.github.io/JAP/index.html" && pasoPorLogin == "true") {
   alert("Inicio sesion con el mail: " + emailLog)
 }
  
