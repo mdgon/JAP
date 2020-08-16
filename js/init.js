@@ -40,8 +40,9 @@ var getJSONData = function(url){
     });
 }
 
-
+var urlActual = window.location.href
 var pasoPorLogin = localStorage.getItem("boolean");
+var emailLog =  localStorage.getItem("email")
 
 
 function irLogin() {
@@ -50,6 +51,10 @@ function irLogin() {
  }
 
  irLogin();
+
+if (urlActual == "https://mdgon.github.io/JAP/index.html?" && pasoPorLogin == "true") {
+  alert("Inicio sesion con el mail: " + emailLog)
+}
  
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
