@@ -1,9 +1,9 @@
-localStorage.setItem("boolean", false);
+sessionStorage.setItem("boolean", false);
 
 
 function ingresarHomePage(){
 sessionStorage.setItem("email", document.getElementById("emailLogin").value)
-localStorage.setItem("boolean", true);
+sessionStorage.setItem("boolean", true);
 }
 
 
@@ -17,7 +17,7 @@ console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID
 console.log('Name: ' + profile.getName());
 console.log('Image URL: ' + profile.getImageUrl());
 console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-localStorage.setItem("boolean", true);
+sessionStorage.setItem("boolean", true);
 window.location.href="index.html";
 }
 

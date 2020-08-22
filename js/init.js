@@ -41,7 +41,7 @@ var getJSONData = function(url){
 }
 
 var urlActual = window.location.href
-var pasoPorLogin = localStorage.getItem("boolean");
+var pasoPorLogin = sessionStorage.getItem("boolean");
 var emailLog =  sessionStorage.getItem("email")
 
 
