@@ -140,6 +140,11 @@ a.custom-card:hover {
   color: orange;
 }
 
+.menu{
+  padding: 0px 10px 0px 10px;
+  margin: -7px 0px;
+}
+
 .avatar{
   height: 100px;
   width: 100px;

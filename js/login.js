@@ -2,7 +2,7 @@ localStorage.setItem("boolean", false);
 
 
 function ingresarHomePage(){
-localStorage.setItem("email", document.getElementById("emailLogin").value)
+sessionStorage.setItem("email", document.getElementById("emailLogin").value)
 localStorage.setItem("boolean", true);
 }
 
@@ -10,7 +10,7 @@ localStorage.setItem("boolean", true);
 function onSignIn2(googleUser) {
 var profile = googleUser.getBasicProfile();
 
-localStorage.setItem("email", profile.getEmail());
+sessionStorage.setItem("email", profile.getEmail());
 
 
 console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.

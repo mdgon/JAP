@@ -42,7 +42,7 @@ var getJSONData = function(url){
 
 var urlActual = window.location.href
 var pasoPorLogin = localStorage.getItem("boolean");
-var emailLog =  localStorage.getItem("email")
+var emailLog =  sessionStorage.getItem("email")
 
 
 function irLogin() {
@@ -53,7 +53,7 @@ function irLogin() {
  irLogin();
 
 
- 
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -61,4 +61,10 @@ document.addEventListener("DOMContentLoaded", function(e){
   if (urlActual == "https://mdgon.github.io/JAP/index.html" && pasoPorLogin == "true") {
   alert("Inicio sesion con el mail: " + emailLog)
 }
+
+function ponerUser() {
+  document.getElementById("navbarDropdown").innerHTML = emailLog;
+ }
+ 
+ ponerUser();
 });
