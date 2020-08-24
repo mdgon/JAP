@@ -52,19 +52,29 @@ function irLogin() {
 
  irLogin();
 
+ function signOut() {
+   sessionStorage.setItem("email", null)
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
+    console.log('User signed out.');
+  });
+}
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-  if (urlActual == "https://mdgon.github.io/JAP/index.html" && pasoPorLogin == "true") {
-  alert("Inicio sesion con el mail: " + emailLog)
-}
 
-function ponerUser() {
-  document.getElementById("navbarDropdown").innerHTML = emailLog;
- }
- 
- ponerUser();
+document.getElementById("navbarDropdown").innerHTML = emailLog;
+
+var imgAvatar = "img/Avatar2.png";
+var imgAvatarGoogle = sessionStorage.getItem("imageProfile");
+var loginGoogle = sessionStorage.getItem("loginGoogle")
+
+if(loginGoogle == "true") {
+  avatar += `<img src= "`+ imgAvatarGoogle +`" height="57px" class="py-2"></img>`
+} else {
+  avatar += `<img src="`+ imgAvatar +`" height="57px" class="py-2"></img>`
+}
 });
