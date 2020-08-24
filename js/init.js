@@ -68,13 +68,15 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 document.getElementById("navbarDropdown").innerHTML = emailLog;
 
-var imgAvatar = "img/Avatar2.png";
+var imgAvatar = "";
 var imgAvatarGoogle = sessionStorage.getItem("imageProfile");
 var loginGoogle = sessionStorage.getItem("loginGoogle")
 
 if(loginGoogle == "true") {
-  avatar += `<img src= "`+ imgAvatarGoogle +`" height="57px" class="py-2"></img>`
+  imgAvatar += `<img src= "`+ imgAvatarGoogle +`" height="57px" class="py-2"></img>`
 } else {
-  avatar += `<img src="`+ imgAvatar +`" height="57px" class="py-2"></img>`
+  imgAvatar += `<img src="img/Avatar2.png" height="57px" class="py-2"></img>`
 }
+
+document.getElementById("user").innerHTML = imgAvatar;
 });
