@@ -66,7 +66,7 @@ function irLogin() {
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 
-document.getElementById("navbarDropdown").innerHTML = emailLog;
+document.getElementById("dropdownMenuButtonUser").innerHTML = emailLog;
 
 var imgAvatar = "";
 var imgAvatarGoogle = sessionStorage.getItem("imageProfile");
@@ -75,7 +75,7 @@ var loginGoogle = sessionStorage.getItem("loginGoogle")
 if(loginGoogle == "true") {
   imgAvatar += `<img src= "`+ imgAvatarGoogle +`" height="57px" class="py-2"></img>`
 } else {
-  imgAvatar += `<img src="img/Avatar2.png" height="57px" class="py-2"></img>`
+  imgAvatar += `<img src="img/Avatar2.png" height="57px" class="py-2" style="border-radius: 50%"></img>`
 }
 
 document.getElementById("user").innerHTML = imgAvatar;
