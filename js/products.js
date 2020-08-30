@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     txtBusqueda.addEventListener("keyup", function() {       // Ejecuto mi funcion cada vez que presiona una tecla 
         cadena = txtBusqueda.value.toLowerCase();            // convierto al texto de la busqueda en minusculas   
         showProductsList(currentProductsArray);              // Muestro los productos
-        document.getElementById("prodNoEncontrado").innerHTML = '' //Dejo vacio el div de id = prodNoEncontrado para que no se repita el mensaje  si se escriben varias letras y no las encuentra.
+        document.getElementById("prodNoEncontrado").innerHTML = '' //Dejo vacio el div de id = prodNoEncontrado para que no se repita el mensaje si se escriben varias letras y no las encuentra.
 
         if (listaProductos.innerHTML === "") { //si no hay ninguna lista de productos muestro un mensaje
             document.getElementById("prodNoEncontrado").innerHTML += "Producto no encontrado..."

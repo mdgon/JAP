@@ -80,9 +80,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
   var loginGoogle = sessionStorage.getItem("loginGoogle")
 
   if (loginGoogle == "true") {
-    imgAvatar += `<img src= "` + imgAvatarGoogle + `" height="57px" class="py-2"></img>`
+    imgAvatar += `<img src= "` + imgAvatarGoogle + `" height="46px" style="border-radius: 50%"></img>`
   } else {
-    imgAvatar += `<img src="img/Avatar2.png" height="57px" style="border-radius: 50%"></img>`
+    imgAvatar += `<img src="img/Avatar2.png" height="46px"></img>`
   }
 
   document.getElementById("user").innerHTML = imgAvatar;
