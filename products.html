@@ -16,6 +16,7 @@
 </head>
 
 <body>
+  <!-- Menu -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="py-2 d-none d-md-inline-block logoMenu" href="#">
       <img src="img/LogoCeibal4.png" width="120" height="30" class="d-inline-block align-top" alt="">
@@ -58,6 +59,8 @@
         </div>
       </div>
   </nav>
+<!-- Fin Menu -->
+
 
   <div class="text-center p-4">
     <h2>Productos</h2>
@@ -66,6 +69,7 @@
   <div class="container">
     <div class="row">
       <div class="col d-flex justify-content-end">
+        <!-- Botones Filtros -->
         <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
           <label class="btn btn-danger filtrosArticulos" id="sortAsc">
             <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>$
@@ -77,11 +81,15 @@
             <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Rel.
           </label>
         </div>
+        <!-- Fin Botones Filtros -->
+        <!-- Buscador -->
         <form class="form-inline mb-4 ml-2">
-          <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+          <input class="form-control mr-sm-2" id="txtBusqueda" type="search" placeholder="Buscar" aria-label="Search">
         </form>
+        <!-- Fin Buscador -->
       </div>
     </div>
+    <!-- Fin Filtros Min y Max -->
     <div class="row justify-content-end">
       <div class="col-md-6"></div>
       <div class="col-md-6 col-sm-12 mb-1 container">
@@ -102,6 +110,7 @@
           </div>
         </div>
       </div>
+      <!-- Fin Filtros Min y Max -->
     </div>
     <div class="row">
       <div class="list-group" id="cat-list-container">
@@ -113,8 +122,10 @@
 
   <div class="container products">
     <div class="row">
-      <div class="list-group" id="lista-productos">
-      </div>
+      <div class="list-group" id="lista-productos"></div>
+    </div>
+    <div class="text-center p-5">
+      <h2 id="prodNoEncontrado"></h2>
     </div>
   </div>
 

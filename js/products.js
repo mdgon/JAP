@@ -5,10 +5,11 @@ var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+var cadena = "";
+var listaProductos = document.getElementById("lista-productos")
 
-var productsArray = [];
 
-
+//Filtro Productos
 function sortProducts(criteria, array){
     let result = [];
     if (criteria === ORDER_DESC_BY_COST)
@@ -44,10 +45,12 @@ function showProductsList() {
     let articulo = "";
     for (let i = 0; i < currentProductsArray.length; i++) {
         let product = currentProductsArray[i];
-
+        let nombreProd = product.name.toLowerCase();        //toma el nombre del preducto y lo paso a minusculas
+        let descProd = product.description.toLowerCase();   //toma el contenidod e la descripcion y lo paso a minusculas
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount)) &&
+            ((descProd.indexOf(cadena) !== -1 || (nombreProd.indexOf(cadena) !== -1)) )){   //si el indexOf devuelve -1 no existe el procuto con ese nombre o desc, con el or indicamos que si existe alguno de los dos muestro el procuto 
                 
                 articulo += `
                 <div class="list-group-item">
@@ -71,8 +74,9 @@ function showProductsList() {
                 `
          }
 
-        document.getElementById("lista-productos").innerHTML = articulo;
+         listaProductos.innerHTML = articulo;
     }
+
 }
 
 function sortAndShowProducts(sortCriteria, productsArray){
@@ -91,8 +95,9 @@ function sortAndShowProducts(sortCriteria, productsArray){
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL).then(function(resultObj){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){ //Llamo al json PRODUCTOS_URL
         if (resultObj.status === "ok"){
             sortAndShowProducts(ORDER_ASC_BY_COST, resultObj.data);
         }
@@ -143,4 +148,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showProductsList();
     });
 
-});
+    var txtBusqueda = document.getElementById("txtBusqueda"); //Capturo por id el imput para buscar
+    txtBusqueda.addEventListener("keyup", function() {       // Ejecuto mi funcion cada vez que presiona una tecla 
+        cadena = txtBusqueda.value.toLowerCase();            // convierto al texto de la busqueda en minusculas   
+        showProductsList(currentProductsArray);              // Muestro los productos
+        document.getElementById("prodNoEncontrado").innerHTML = '' //Dejo vacio el div de id = prodNoEncontrado para que no se repita el mensaje  si se escriben varias letras y no las encuentra.
+
+        if (listaProductos.innerHTML === "") { //si no hay ninguna lista de productos muestro un mensaje
+            document.getElementById("prodNoEncontrado").innerHTML += "Producto no encontrado..."
+        }
+
+    });
+
+
+}); 
