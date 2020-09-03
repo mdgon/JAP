@@ -53,24 +53,27 @@ function showProductsList() {
             ((descProd.indexOf(cadena) !== -1 || (nombreProd.indexOf(cadena) !== -1)) )){   //si el indexOf devuelve -1 no existe el procuto con ese nombre o desc, con el or indicamos que si existe alguno de los dos muestro el procuto 
                 
                 articulo += `
-                <div class="list-group-item">
-                    <div class="row">
-                        <div class="col-3">
-                            <img src="` + product.imgSrc + `" class="img-thumbnail">
-                        </div>
-                        <div class="col">
+                <div class="d-flex container">
+                <div class="col-xl-12 col-lg-8 order-lg-2">
+                    <div class="d-flex list-group-item">
+                        <div class="border-right imgProduct"><img src="` + product.imgSrc + `"></div>
+                        <div class="col-xl-9">
                             <div class="d-flex w-100 justify-content-between">
                                 <h4 class="mb-1">` + product.name + `</h4>
-                                <small class="text-muted">Vendidos `+ product.soldCount + `</small>
+                                <small class="text-muted">Vendidos 17</small>
                             </div>
-                            <div>` + product.description + `</div>
-                            
+                            <div class="productDesc">` + product.description + `</div>
+                            <h4>`+ product.currency + ` ` + product.cost +`</h4>
+                            <div class="product-buttons">
+                                <button class="btn btn-outline-danger btn-sm" data-toast="" data-toast-type="success"
+                                    data-toast-position="topRight" data-toast-icon="icon-circle-check"
+                                    data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to
+                                    Cart</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="row col-9 float-right">
-                        <div class=""><b>`+ product.currency + ` ` + product.cost +`</b></div>
-                    </div>
                 </div>
+            </div>
                 `
          }
 
