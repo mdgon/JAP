@@ -1,9 +1,12 @@
-.jumbotron, .card-body, .container, .site-header{
-    font-family: 'Raleway', serif !important;
+.jumbotron,
+.card-body,
+.container,
+.site-header {
+  font-family: 'Raleway', serif !important;
 }
 
-.jumbotron .display-4{
-    font-weight: bold;
+.jumbotron .display-4 {
+  font-weight: bold;
 }
 
 .jumbotron {
@@ -41,7 +44,7 @@
   text-shadow: 1px 1px 2px grey;
 }
 
-.jumbotron .lead{
+.jumbotron .lead {
   font-size: 38px;
 }
 
@@ -67,15 +70,15 @@ footer p {
   color: black;
 }
 
-.dropzone{
+.dropzone {
   border: 2px dashed #0087F7;
   border-radius: 5px;
   background: white;
 }
 
-.alert{
+.alert {
   position: fixed;
-  top:80px;
+  top: 80px;
   width: 50%;
   left: 50%;
   transform: translate(-50%, 0);
@@ -86,9 +89,10 @@ footer p {
   position: relative;
   width: 64px;
   height: 64px;
-  top:50%;
+  top: 50%;
   left: 50%;
 }
+
 .lds-ring div {
   box-sizing: border-box;
   display: block;
@@ -101,31 +105,36 @@ footer p {
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #fff transparent transparent transparent;
 }
+
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
 }
+
 .lds-ring div:nth-child(2) {
   animation-delay: -0.3s;
 }
+
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
+
 @keyframes lds-ring {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
 
-#spinner-wrapper{
+#spinner-wrapper {
   position: fixed;
-  background-color: rgba(0,0,0,0.5);
-  width:100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
   height: 100%;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   z-index: 1021;
   display: none;
 }
@@ -140,37 +149,37 @@ a.custom-card:hover {
   color: orange;
 }
 
-.menu{
+.menu {
   padding: 0px 10px 0px 10px;
   margin: -7px 0px;
 }
 
-.avatar{
+.avatar {
   height: 100px;
   width: 100px;
   margin-top: -60px;
   margin-bottom: 10px;
 }
 
-.heatherLogin{
+.heatherLogin {
   height: 20%;
   width: 55%;
   margin-bottom: 50px;
 }
 
-.btn-login{
+.btn-login {
   background-color: #d61c6c;
   border-color: #d61c6c;
   margin: 10px;
-  
+
 }
 
-.products{
-margin-bottom: 10px;
-margin-top: 10px;
+.products {
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
-.separador > s {
+.separador>s {
   width: calc(50% - 77px);
   height: 1px;
   margin-bottom: 3px;
@@ -178,48 +187,44 @@ margin-top: 10px;
   background: #d61c6c;
 }
 
-.btnLogGoogle{
-margin-bottom: 10px;
-display: inline-block;
+.btnLogGoogle {
+  margin-bottom: 10px;
+  display: inline-block;
 }
 
-.btn{
+.btn {
   border-radius: 22px;
 }
 
-.btn-success{
+.btn-success {
   background-color: #43d9a3;
 }
 
-.btn-danger{
+.btn-danger {
   background-color: #ff5252;
 }
 
-.logoMenu{
-margin-right: 25px;
+.logoMenu {
+  margin-right: 25px;
 }
 
-.filtrosArticulos.focus.active{
+.filtrosArticulos.focus.active {
   background-color: #c40f5d !important;
 }
 
-.filtrosArticulos.active{
+.filtrosArticulos.active {
   background-color: #c40f5d !important;
 }
 
-.filtrosArticulos{
-  background-color: #d61c6c ;
+.filtrosArticulos {
+  background-color: #d61c6c;
 }
 
-.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
-  color: #d61c6c;
-}
-
-.nav-item{
+.nav-item {
   border-top-color: #d61c6c;
 }
 
-.imgUser{
+.imgUser {
   border-radius: 50%;
 }
 
@@ -228,23 +233,26 @@ margin-right: 25px;
   font-size: 18px
 }
 
-.imgProduct{
+.imgProduct {
   padding: 10px 10px;
 }
 
-.list-group-item{
+.list-group-item {
   margin-bottom: 20px !important;
 }
 
-.list-group-item img{
+.list-group-item img {
   width: 190px;
 }
 
-.imgProduct{
+.imgProduct {
   padding: 10px 20px 10px 10px;
 }
 
-.productDesc{
+
+
+
+.productDesc {
   margin-bottom: 20px;
   margin-top: 10px;
 }
@@ -253,11 +261,79 @@ margin-right: 25px;
   padding-top: 20px;
   padding-bottom: 0;
   border-top: 1px solid #e1e7ec;
-  }
+}
 
-#dropdownMenuButtonUser{
+/* estilos product-info */
+
+.product-gallery {
+  position: relative;
+  padding-top: 74px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  border: 1px solid #e1e7ec;
+  border-radius: 7px;
+}
+
+.product-gallery .product-thumbnails>li {
+  display: inline-block;
+  margin: 0 3px 10px;
+}
+
+/* .imgProduct>a {
+  display: block;
+  width: 94px;
+  transition: border-color .25s;
+  border: 1px solid #e1e7ec;
+  border-radius: 5px;
+  overflow: hidden;
+} */
+
+.comentarios>ul>li>a{
+  margin-bottom: -1px;
+}
+
+.tab-content.border{
+  padding: 15px;
+}
+
+.product-thumbnails{
+  margin-left: 3px;
+  margin-top: 15px;
+}
+
+.product-thumbnails>a>img{
+  width: 97px;
+  padding: 3px;
+}
+
+.comment{
+  padding: 15px;
+}
+.comment-body{
+
+background-color: #f3f3f3;
+padding: 15px;
+border-radius: 10px;
+}
+
+.comment-author-ava{
+  width: 50px;
+  /* margin-right: 20px; */
+}
+
+.comment .fas.fa-caret-left{
+  color: #f3f3f3;
+  width: 12px;
+}
+
+.comment-author-ava>img{
+  width: 100%;
+}
+
+#dropdownMenuButtonUser {
   margin: 7px 0px 0px 10px;
   background-color: #d61c6c;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 

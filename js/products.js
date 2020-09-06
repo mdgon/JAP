@@ -56,19 +56,18 @@ function showProductsList() {
                 <div class="d-flex container">
                 <div class="col-xl-12 col-lg-8 order-lg-2">
                     <div class="d-flex list-group-item">
-                        <div class="border-right imgProduct"><img src="` + product.imgSrc + `"></div>
+                    <a class="border-right" href="product-info.html"><div class="imgProduct"><img src="` + product.imgSrc + `"></div></a>
                         <div class="col-xl-9">
                             <div class="d-flex w-100 justify-content-between">
-                                <h4 class="mb-1">` + product.name + `</h4>
-                                <small class="text-muted">Vendidos 17</small>
+                            <a href="product-info.html"><h4 class="mb-1">` + product.name + `</h4></a>
+                                <small class="text-muted">` + product.soldCount + ` Vendidos</small>
                             </div>
                             <div class="productDesc">` + product.description + `</div>
                             <h4>`+ product.currency + ` ` + product.cost +`</h4>
                             <div class="product-buttons">
                                 <button class="btn btn-outline-danger btn-sm" data-toast="" data-toast-type="success"
                                     data-toast-position="topRight" data-toast-icon="icon-circle-check"
-                                    data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to
-                                    Cart</button>
+                                    data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
                             </div>
                         </div>
                     </div>
