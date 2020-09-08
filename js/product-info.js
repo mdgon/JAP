@@ -52,7 +52,9 @@ function showProductInfo() {
         <h5 class="mb-3 mt-3">Descripcion:</h5>
         <p>` + productInfo.description + `</p>
         <h5>Cantidad Vendidos: ` + productInfo.soldCount + `</h5>
-        <a href="category-info.html"><h6 class="mt-5"><i class="fas fa-tag"></i> ` + productInfo.category + `</h6></a>
+        <div class="mt-5">
+        <i class="fas fa-tag"></i><a href="category-info.html" class="badge badge-primary ml-1"><h6">` + productInfo.category + `</h6></a>
+        </div>
         <hr class="mb-3">
         <div class="sp-buttons mt-2 mb-2">
             <button class="btn btn-primary" data-toast="" data-toast-type="success"
@@ -100,6 +102,31 @@ function showImagesProducts() {
 
 }
 
+function showRelatedProducts(){
+
+    let relatedProdArray = productInfo.relatedProducts;
+    
+    let relatedProd ="";
+    for (let i = 0; i < relatedProdArray.length; i++) {
+
+            relatedProd +=`
+            
+            <div class="col-3 product-card border">
+            <div><a class="product-thumb" href="#"><img class="imgRelated" src="`+ product[i].imgSrc +`"
+                  alt="Product"></a></div>
+            <p class="product-description">
+            `+ product[i].description +`
+            </p>
+            <button class="btn btn-link" data-toast="" data-toast-type="success"
+              data-toast-message="successfuly added to cart!">Ver</button>
+          </div>`
+            
+          document.getElementById("relatedProducts").innerHTML = relatedProd;
+    } 
+
+    
+}
+
 function showComments() {
 
     let dataComments = "";
@@ -143,29 +170,6 @@ function showComments() {
     
 }
 
-/* function star(){
-
-    let star = "";
-    let score = com.score - 1;
-    contador = 0;
-    let idRating ="rating"+ contador;
-    let div =  document.getElementById(idRating);
-
-    for (let i = 0; i < 5; i++) {
-
-        if(i <= score){
-            star += `<i class="fas fa-star checked"></i> `;
-        }else{
-            star += `<i class="fas fa-star"></i> `;
-        }
-
-        div.innerHTML = star;
-    } 
-
-    
-} */
-
-
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -185,6 +189,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
             currentCommentsArray = resultObj.data;
 
             showComments();
+        }
+    });
+
+    getJSONData(PRODUCTS_URL).then(function(resultObj){ //Llamo al json PRODUCTOS_URL
+        if (resultObj.status === "ok") {
+            product = resultObj.data;
+
+            showRelatedProducts()
         }
     });
 });

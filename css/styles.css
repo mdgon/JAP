@@ -280,14 +280,6 @@ a.custom-card:hover {
   margin: 0 3px 10px;
 }
 
-/* .imgProduct>a {
-  display: block;
-  width: 94px;
-  transition: border-color .25s;
-  border: 1px solid #e1e7ec;
-  border-radius: 5px;
-  overflow: hidden;
-} */
 
 .comentarios>ul>li>a{
   margin-bottom: -1px;
@@ -307,6 +299,28 @@ a.custom-card:hover {
   padding: 3px;
 }
 
+.product-card.border{
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.fas.fa-tag{
+  color: #007bff;
+}
+
+.product-card.border{
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.imgRelated{
+  width: 100%;
+  margin-bottom: 5px;
+}
+
 .comment{
   padding: 15px;
 }
@@ -319,7 +333,6 @@ border-radius: 10px;
 
 .comment-author-ava{
   width: 50px;
-  /* margin-right: 20px; */
 }
 
 .comment .fas.fa-caret-left{
