@@ -74,7 +74,7 @@
     <!-- Relacionados -->
 
     <h3>Productos Reacionados</h3>
-    
+
     <div class="d-flex" id="relatedProducts">
     </div>
 
@@ -95,41 +95,40 @@
             <div class="mt-5" id="fromComment">
               <h5 class="mb-30 padding-top-1x">Deja tu comentario</h5>
               <form class="row" method="post">
-                <div class="col-sm-6">
+                <div class="col-6">
                   <div class="form-group">
                     <label for="review_name">Nombre</label>
-                    <input class="form-control form-control-rounded" type="text" id="review_name" required="">
+                    <input class="form-control form-control-rounded" type="text" id="commentName" required="">
                   </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-6">
                   <div class="form-group">
                     <label for="review_email">Email</label>
-                    <input class="form-control form-control-rounded" type="email" id="review_email" required="">
+                    <input class="form-control form-control-rounded" type="email" id="commentEmail" required="">
                   </div>
                 </div>
-            </div>
-            <div class="">
-              <div class="form-group">
-                <label for="review_rating">Clasificación</label>
-                <select class="col-sm-6 form-control form-control-rounded" id="review_rating">
-                  <option>5 Estrellas</option>
-                  <option>4 Estrellas</option>
-                  <option>3 Estrellas</option>
-                  <option>2 Estrellas</option>
-                  <option>1 Estrella</option>
-                </select>
+                  <div class="col-6 form-group">
+                    <label for="review_rating">Clasificación</label>
+                    <select class="form-control form-control-rounded" id="commentRating">
+                      <option value="4">5 Estrellas</option>
+                      <option value="3">4 Estrellas</option>
+                      <option value="2">3 Estrellas</option>
+                      <option value="1">2 Estrellas</option>
+                      <option value="0">1 Estrella</option>
+                    </select>
+                  </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="review_text">Comentario </label>
+                    <textarea class="form-control form-control-rounded" id="review_text" rows="8"
+                      required=""></textarea>
+                  </div>
+                </div>
+              </form>
+              <div class="col-12 text-right">
+                <button class="btn btn-primary" id="newComment">Enviar Comentario</button>
               </div>
             </div>
-            <div class="col-12">
-              <div class="form-group">
-                <label for="review_text">Comentario </label>
-                <textarea class="form-control form-control-rounded" id="review_text" rows="8" required=""></textarea>
-              </div>
-            </div>
-            <div class="col-12 text-right">
-              <button class="btn btn-outline-primary" type="submit">Enviar Comentario</button>
-            </div>
-            </form>
             <!-- fin Comment Form -->
           </div>
         </div>

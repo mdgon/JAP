@@ -158,10 +158,13 @@ function showComments() {
             </div>
             <p>` + com.description + `</p>
             <!-- Estrellas -->
-            <div class="rating-stars mb-2" id="rating` + i + `">` + star + `</div>
+            <div class="rating-stars mb-2" id="rating">` + star + `</div>
         </div>
         </div>
         `
+
+      
+        
 
         document.getElementById("commentProduct").innerHTML = dataComments;
 
@@ -169,6 +172,51 @@ function showComments() {
 
     
 }
+
+
+// utilizo insertAdjacentHTML para añadir un comentario despuesde del ultimo hijo <div id="commentProducts">
+document.getElementById("newComment").addEventListener("click",function(){
+    let dataComments = "";
+   
+    let nombre = document.getElementById("commentName").value;
+    let cometario= document.getElementById("commentEmail").value;;
+    let score = document.getElementById("commentRating").value;;
+    let today = new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0].replace('T',' ');
+
+        
+        let star = "";
+
+        for (let i = 0; i < 5; i++) {
+    
+            if(i <= score){
+                star += `<i class="fas fa-star checked"></i> `;
+            }else{
+                star += `<i class="fas fa-star"></i> `;
+            }
+            
+        }  
+         
+        dataComments += `
+        
+    <div class="d-flex comment" id="comment">
+        <div class="comment-author-ava"><img src="img/Avatar2.png" alt="Review author"></div>
+        <i class="fas fa-caret-left fa-3x"></i>
+        <div class="col-11 comment-body">
+            <div class="comment-header d-flex flex-wrap justify-content-between">
+            <span>` + nombre + `</span>
+            <p>` + today + `</p>
+            </div>
+            <p>` + cometario + `</p>
+            <!-- Estrellas -->
+            <div class="rating-stars mb-2" id="rating">` + star + `</div>
+        </div>
+        </div>
+        `
+
+        let commentProduct = document.getElementById("commentProduct");
+
+        commentProduct.insertAdjacentHTML('beforeend', dataComments);
+});
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -199,4 +247,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
             showRelatedProducts()
         }
     });
+
+
 });
