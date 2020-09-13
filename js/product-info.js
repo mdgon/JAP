@@ -3,6 +3,7 @@ var currentCommentsArray = [];
 
 var productInfo = {};
 
+//Muestro la informacion del producto
 function showProductInfo() {
 
     let dataProd = "";
@@ -66,13 +67,13 @@ function showProductInfo() {
 
     document.getElementById("descProd").innerHTML = dataProd;
 }
-
+// muestro las imagenes del producto
 function showImagesProducts() {
 
     images = productInfo.images;
 
     let imgProdMin = "";
-
+    // guardo las imagenes en un array y las recorro para mostrarlas en las imagenes miniaturas del carousel
     for (let i = 0; i < images.length; i++) {
         let img = images[i];
         imgProdMin += ` <a href="#` + i + `"><img class="border rounded" src="` + img + `" alt="Product"></a>`
@@ -81,7 +82,7 @@ function showImagesProducts() {
     }
 
     let imgCarousel = "";
-
+    // Agrego las imagenes al carousel
     for (let i = 0; i < images.length; i++) {
         let img = images[i];
 
@@ -101,7 +102,7 @@ function showImagesProducts() {
     }
 
 }
-
+//muestro productos relacionados
 function showRelatedProducts(){
 
     let relatedProdArray = productInfo.relatedProducts;
@@ -126,7 +127,7 @@ function showRelatedProducts(){
 
     
 }
-
+// Muestro comentario 
 function showComments() {
 
     let dataComments = "";
@@ -173,15 +174,14 @@ function showComments() {
     
 }
 
-
 // utilizo insertAdjacentHTML para añadir un comentario despuesde del ultimo hijo <div id="commentProducts">
 document.getElementById("newComment").addEventListener("click",function(){
     let dataComments = "";
    
-    let nombre = document.getElementById("commentName").value;
-    let cometario= document.getElementById("commentEmail").value;;
-    let score = document.getElementById("commentRating").value;;
-    let today = new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0].replace('T',' ');
+    let nombre = document.getElementById("commentName").value; // capturo el valor del nombre
+    let cometario= document.getElementById("commentText").value;//capturo el valor del comentario
+    let score = document.getElementById("commentRating").value;//capturo la  cantidad de estrellas del comentario
+    let today = new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0].replace('T',' ');// capturo la hora de hoy
 
         
         let star = "";
