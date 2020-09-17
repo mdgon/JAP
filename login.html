@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <!-- Google Script -->
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script> 
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <meta name="google-signin-client_id" content="1001859679659-eeitkuedrmslmu0tdtjbnfa4364qv4d1.apps.googleusercontent.com">
   <title>eMercado - Todo lo que busques está aquí</title>
@@ -54,7 +55,28 @@
 
   
 
+<script>
 
+function onSignIn2(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  
+  sessionStorage.setItem("email", profile.getEmail());
+  sessionStorage.setItem("imageProfile", profile.getImageUrl());
+  sessionStorage.setItem("loginGoogle", true);
+  
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  sessionStorage.setItem("boolean", true);
+  window.location.href="index.html";
+  
+  // The ID token you need to pass to your backend:
+  var id_token = googleUser.getAuthResponse().id_token;
+  console.log("ID Token: " + id_token);
+  
+  }
+  </script>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/login.js"></script>
