@@ -291,6 +291,11 @@ a.custom-card:hover {
   margin-top: 15px;
 }
 
+.product-thumbnails>div>a>img{
+  width: 97px;
+  padding: 3px;
+}
+
 .product-thumbnails>a>img{
   width: 97px;
   padding: 3px;

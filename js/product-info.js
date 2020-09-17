@@ -76,7 +76,7 @@ function showImagesProducts() {
     // guardo las imagenes en un array y las recorro para mostrarlas en las imagenes miniaturas del carousel
     for (let i = 0; i < images.length; i++) {
         let img = images[i];
-        imgProdMin += ` <a href="#` + i + `"><img class="border rounded" src="` + img + `" alt="Product"></a>`
+        imgProdMin += ` <a href="#` + i + `" data-target="#carouselExampleInterval" data-slide-to="` + i + `"><img class="border rounded" src="` + img + `" alt="Product"></a>`
 
         document.getElementById("imgProdMin").innerHTML = imgProdMin;
     }
