@@ -103,7 +103,7 @@ function modifyPurchaseData() {
         txtPrecio = document.getElementById(idSubtotal).outerText
         // paso el texto del subtotal a un array y lo separo por un espacio
         arrPrecio = txtPrecio.split(" ")
-        // agarro la moneda del producto
+        // agarro la divisa del producto
         precio = parseInt(arrPrecio[1]);
         //si la moneda del producto es igual a USD lo multiplico por 40
         if (arrPrecio[0] === "USD"){
