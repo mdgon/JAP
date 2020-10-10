@@ -65,9 +65,7 @@ function showProductsList() {
                             <div class="productDesc">` + product.description + `</div>
                             <h4>`+ product.currency + ` ` + product.cost +`</h4>
                             <div class="product-buttons">
-                                <button class="btn btn-primary btn-sm" data-toast="" data-toast-type="success"
-                                    data-toast-position="topRight" data-toast-icon="icon-circle-check"
-                                    data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                                <button class="btn btn-primary btn-sm"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
                             </div>
                         </div>
                     </div>

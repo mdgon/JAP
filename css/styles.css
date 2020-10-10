@@ -291,10 +291,6 @@ a.custom-card:hover {
   margin-top: 15px;
 }
 
-.product-thumbnails>div>a>img{
-  width: 97px;
-  padding: 3px;
-}
 
 .product-thumbnails>a>img{
   width: 97px;
@@ -346,9 +342,29 @@ border-radius: 10px;
   width: 100%;
 }
 
+.fas .fa-times{
+  color: #c40f5d;
+}
+
+.cant{
+  width: 20px;
+}
+
 #dropdownMenuButtonUser {
   margin: 7px 0px 0px 10px;
   background-color: #d61c6c;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+#nomProduct{
+  width: 200px;
+}
+
+#nomProduct img{
+  height: 100px;
+}
+
+#infoCarrito{
+  border-radius: 10px;
 }
 
