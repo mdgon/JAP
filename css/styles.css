@@ -350,6 +350,14 @@ border-radius: 10px;
   width: 20px;
 }
 
+.invalidFeed{
+  display: none;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+
 #dropdownMenuButtonUser {
   margin: 7px 0px 0px 10px;
   background-color: #d61c6c;
@@ -366,5 +374,15 @@ border-radius: 10px;
 
 #infoCarrito{
   border-radius: 10px;
+}
+
+#borrarTodo{
+  background-color: #d71c1c;
+}
+
+#alerta{
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
 }
 

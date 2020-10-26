@@ -82,14 +82,14 @@
     <div class="row">
       <div class="table-responsive mt-5">
         <table class="table">
-          <thead>
+          <thead class="thead-dark">
             <tr>
               <th></th>
               <th>Nombre de Producto</th>
               <th class="text-center">Precio</th>
               <th class="text-center">Cantidad</th>
               <th class="text-center">Subtotal</th>
-              <th class="text-center"><a id="borrarTodo" class="btn btn-sm btn-outline-danger" href="#"
+              <th class="text-center"><a id="borrarTodo" class="btn btn-sm btn-danger" href="#"
                   onclick="removeProducts(this)">Borrar Carrito</a></th>
             </tr>
           </thead>
@@ -104,49 +104,71 @@
     <div class="d-flex justify-content-md-center">
       <div class="mt-5 p-3 border" id="infoCarrito">
         <div class="order-md-1">
-          <h4 class="text-center mb-3">Información del Compra</h4>
-          <form class="needs-validation" id="sell-info">
+          <h4 class="text-center mb-3">Información del la Compra</h4>
+
+          <form class="needs-validation" id="sell-info" novalidate>
             <hr class="mb-4">
-            <h5 class="mb-3">Tipo de Envio</h5>
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="premiumRadio" name="publicationType" type="radio" class="custom-control-input radio"
-                  value="0.15" checked="" required="">
-                <label class="custom-control-label" for="premiumRadio">Premium (15%)</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="expressRadio" name="publicationType" type="radio" class="custom-control-input radio"
-                  value="0.07" required="">
-                <label class="custom-control-label" for="expressRadio">Express (7%)</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="estandarRadio" name="publicationType" type="radio" class="custom-control-input radio"
-                  value="0.05" required="">
-                <label class="custom-control-label" for="estandarRadio">Estándar (5%)</label>
-              </div>
-            </div>
             <h5 class="mb-3">Datos de Envio</h5>
-            <div class="row">
+            <div class="form-row">
               <div class="col-8">
                 <div class="form-group">
                   <label for="calle">Calle</label>
-                  <input class="form-control form-control-rounded" type="text" id="calle" required>
+                  <input class="form-control" type="text" id="calle" required>
+                  <div class="invalid-feedback">
+                    Falta ingresar calle.
+                  </div>
                 </div>
               </div>
               <div class="col-4">
                 <div class="form-group">
                   <label for="numeroCalle">Numero</label>
                   <input class="form-control form-control-rounded" type="text" id="numeroCalle" required>
+                  <div class="invalid-feedback">
+                    Falta ingresar numero de calle.
+                  </div>
                 </div>
               </div>
               <div class="col-8">
                 <div class="form-group">
                   <label for="Esquina">Esquina</label>
                   <input class="form-control form-control-rounded" type="text" id="esquina" required>
+                  <div class="invalid-feedback">
+                    Falta ingresar Esquina.
+                  </div>
                 </div>
               </div>
             </div>
             <hr class="mb-4">
+            <h4 class="mb-3">Metodo de pago</h4>
+            <div class="algo" id="contMetodoEnvio">
+              <p id="tipoPago">No se selecciono metodo de pago</p>
+            </div>
+            <div class="invalidFeed" id="validacionMetodoPago">Falta ingresar metodo de pago.</div>
+            <div>
+              <!-- Button trigger modalMetodoPago -->
+              <a type="button" class="text-primary" data-toggle="modal" data-target="#modalMetodoPago">
+                Seleccionar metodo de pago
+              </a>
+              <hr class="mb-4">
+              <h5 class="mb-3">Tipo de Envio</h5>
+              <div class="d-block my-3">
+                <div class="custom-control custom-radio">
+                  <input id="premiumRadio" name="publicationType" type="radio" class="custom-control-input radio"
+                    value="0.15" checked="" required="">
+                  <label class="custom-control-label" for="premiumRadio">Premium (15%)</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="expressRadio" name="publicationType" type="radio" class="custom-control-input radio"
+                    value="0.07" required="">
+                  <label class="custom-control-label" for="expressRadio">Express (7%)</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="estandarRadio" name="publicationType" type="radio" class="custom-control-input radio"
+                    value="0.05" required="">
+                  <label class="custom-control-label" for="estandarRadio">Estándar (5%)</label>
+                </div>
+              </div>
+            </div>
             <h4 class="mb-3">Costos</h4>
             <ul class="list-group mb-3">
               <li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -169,36 +191,113 @@
               </li>
             </ul>
             <div class="text-right">
-              <!-- Button trigger modal -->
-              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#Modal">Realizar
-                Compra</button>
-            </div>
-          </form>
-          <!-- Modal -->
-          <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Felicidades!</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  Su comprea se ha realizado correctamente.
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Quedarse en el Carrito</button>
-                  <a class="btn btn-primary" href="index.html">Volver a la Tienda</a>
+
+
+
+              <!-- modalMetodoPago -->
+              <div class="modal fade" id="modalMetodoPago" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Seleccione un metodo de pago</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="accordion" id="accordionExample">
+                        <div class="card">
+                          <div class="card-header" id="headingOne">
+                            <h2 class="mb-0 text-center">
+                              <button class="btn btn-link text-info" type="button" data-toggle="collapse"
+                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="fas fa-credit-card"></i> Tarjeta de credito
+                              </button>
+                            </h2>
+                          </div>
+
+                          <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                           
+                            <div class="card-body">
+
+                              <div class='card-wrapper' id="wrapper"></div>
+
+                              <form class="needs-validation">
+                                <div class="row mt-5">
+                                  <div class="form-group col-sm-6">
+                                    <input class="form-control form-control-rounded" id="modalNumberCard"
+                                      placeholder="Numero de Tarjeta" type="text" name="number" required>
+                                  </div>
+                                  <div class="form-group col-sm-6">
+                                    <input class="form-control form-control-rounded" id="modalName"
+                                      placeholder="Nombre Titular" type="text" name="name" required />
+                                  </div>
+                                  <div class="form-group col-sm-3">
+                                    <input class="form-control form-control-rounded" id="modalMonthYear"
+                                      placeholder="MM/YY" type="text" name="expiry" required />
+                                  </div>
+                                  <div class="form-group col-sm-3">
+                                    <input class="form-control form-control-rounded" id="modalCvc" placeholder="CVC"
+                                      type="text" name="cvc" required />
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <button class="btn btn-outline-info btn-block margin-top-none" id="completarTarjeta"
+                                      type="submit" data-dismiss="modal"
+                                      onclick="insertPaymentMethod(this)">Completar</button>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0 text-center text-info">
+                              <button class="btn btn-link text-info collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <i class="fas fa-university"></i> Trasnferencia Bancaria
+                              </button>
+                            </h2>
+                          </div>
+                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                              <h3 class="text-center">Datos Cuenta bancaria </h3>
+                              <div class="row">
+                                <div class="form-group col-sm-6">
+                                  <input class="form-control form-control-rounded" id="modalNameAcount"
+                                    placeholder="Nombre" type="text" name="number" required>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                  <input class="form-control form-control-rounded" id="modalNumberAcount"
+                                    placeholder="Numero de Cuenta" type="text" name="name" required />
+                                </div>
+                                <div class="col-sm-6">
+                                  <button class="btn btn-outline-info btn-block margin-top-none" id="completarCuenta"
+                                    type="submit" data-dismiss="modal"
+                                    onclick="insertPaymentMethod(this)">Completar</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <button class="btn btn-primary" type="" onclick="validateForm()">Submit form</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
+
+  <div id="alert"></div>
+
 
   <footer class="text-muted">
     <div class="container">
@@ -230,6 +329,30 @@
     content="1001859679659-eeitkuedrmslmu0tdtjbnfa4364qv4d1.apps.googleusercontent.com">
 
   <script src="js/cart.js"></script>
+  <script src="js/card.min.js"></script>
+
+
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+      'use strict';
+      window.addEventListener('load', function () {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+          form.addEventListener('submit', function (event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+
 </body>
 
 </html>

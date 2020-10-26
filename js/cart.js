@@ -26,22 +26,22 @@ function showProductsCart() {
         productCart +=`
             
         <tr Id="tr`+ i +`"> 
-        <td class="text-center" id="nomProduct"> 
+        <td class="text-center border" id="nomProduct"> 
             <img src= `+cart.articles[i].src+`> 
         </td>
-        <td>
+        <td class="pt-5">
             <h5>`+cart.articles[i].name+`</h5>
         </td>
-        <td class="text-center precio">
+        <td class="text-center pt-5 precio">
             <h4 id="precio`+ i +`">`+cart.articles[i].currency+` `+ cart.articles[i].unitCost +`</h4>
         </td>
-        <td class="cant">
+        <td class="cant pt-5">
             <input class="form-control cantidad" type="number" id="cant`+ i +`" min="1" value="`+ cart.articles[i].count +`">
         </td>
-        <td class="text-center">
+        <td class="text-center pt-5">
             <h4 id="productSubtotal`+ i +`">`+cart.articles[i].currency+` `+ subTotal +`</h4>
         </td>
-        <td class="text-center">
+        <td class="text-center pt-5">
             <button id="remove`+ i +`" class="btn btn-sm btn-outline-danger" onclick="removeProducts(this)"><i class="fas fa-times remove"></i></button>
         </td>
       </tr>`
@@ -87,7 +87,7 @@ function subTotalProduct() {
 }
 
 function modifyPurchaseData() {
-    // listo todos los elementos que que tienen id precio
+    // listo todos los elementos que que tienen clase precio
     let producto= document.querySelectorAll(".precio");
     let txtPrecio = "";
     let total = 0;
@@ -95,6 +95,7 @@ function modifyPurchaseData() {
     let arrPrecio= [];
     let shippingCost = 0;
 
+    // recorro los productos del carrito
      for (let i = 0; i < producto.length; i++) {
         // busco el h4 que tiene que tiene el id del subtotal 
         let h4 = producto[i].nextElementSibling.nextElementSibling.children
@@ -117,9 +118,9 @@ function modifyPurchaseData() {
     shippingCost = parseInt(shippingCost);
     total = subTotal + shippingCost
    
-    document.getElementById("productSubTotal").innerHTML = subTotal;
-    document.getElementById("shippingCost").innerHTML = shippingCost;
-    document.getElementById("totalCost").innerHTML = total
+    document.getElementById("productSubTotal").innerHTML = "UYU "+subTotal;
+    document.getElementById("shippingCost").innerHTML = "UYU "+shippingCost;
+    document.getElementById("totalCost").innerHTML = "UYU "+total;
 
 }
 
@@ -144,12 +145,186 @@ function removeProducts( b ){
     modifyPurchaseData();
 }
 
+function addPaymentMethod() {
+    
+}
+
+function showAlert(){
+
+
+    
+
+        let alert = `
+        
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Felicitaciones!</strong> `+mensaje.msg+`
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>`
+
+      document.getElementById("alert").innerHTML  = alert;
+        
+   
+}
+
+function validateForm(){
+ 
+    let texto = document.getElementById("tipoPago").outerText;
+    
+    if(texto === "No se selecciono metodo de pago"){
+        document.getElementById("validacionMetodoPago").style.display= "block"
+    }else{
+
+        let tipoPago =  document.getElementById("tipoPago").outerText;
+
+        if (tipoPago === "Tarjeta de Credito") {
+
+            let resultNumeroTarjeta = document.getElementById("resultNumeroTarjeta");
+            let resultnombreTitular = document.getElementById("resultnombreTitular");
+            let resultnombreMonthYear = document.getElementById("resultnombreMonthYear");
+            let resultModalCvc = document.getElementById("resultModalCvc");
+        
+                if (resultNumeroTarjeta.value != "" && resultnombreTitular.value != "" && resultnombreMonthYear.value != "" && resultModalCvc.value != "") {
+                showAlert();
+                }else{
+                    document.getElementById("alerta").innerHTML = `<p>Atencion! falta ingresar datos de la tarjeta decredito</p>`
+                }
+        }else{
+
+            let resultModalnumeroCuenta = document.getElementById("resultModalnumeroCuenta");
+            let resultnombreTitular = document.getElementById("resultnombreTitular");
+
+            if (resultModalnumeroCuenta.value != "" && resultnombreTitular.value != "") {
+                showAlert();
+                }else{
+                    document.getElementById("alerta").innerHTML = `<p>Atencion! falta ingresar datos de la tarjeta decredito</p>`
+                }
+        }
+
+    }
+    
+}
+
+function insertPaymentMethod( b ) {
+    
+    document.getElementById("validacionMetodoPago").style.display= "none"
+    let nombreTitular;
+    let numeroTarjeta;
+    let monthYear;
+    let cvc ;
+    let numeroCuenta;
+    let idButton = b.id;
+    let cardwrapper;
+
+    let data;
+
+    if (idButton === "completarTarjeta") {
+        nombreTitular = document.getElementById("modalName").value;
+        numeroTarjeta = document.getElementById("modalNumberCard").value;
+        monthYear = document.getElementById("modalMonthYear").value;
+        cvc = document.getElementById("modalCvc").value;
+        cardwrapper = document.getElementById("wrapper");
+        newcardwrapper = cardwrapper.innerHTML
+        
+
+        data = `
+        
+        <h5 class="mb-2" id="tipoPago">Tarjeta de Credito</h5>
+        
+        <div class="card-body">
+
+        <div class='card-wrapper' id="newCardWrapper"></div>
+
+        
+          <div class="row mt-5">
+            <div class="form-group col-sm-6">
+            <label for="resultNumeroTarjeta">Numero</label>
+              <input class="form-control form-control-rounded" id="resultNumeroTarjeta" placeholder="Numero de Tarjeta"
+                type="text" name="number" value="`+ numeroTarjeta +`" required readonly>
+            </div>
+            <div class="form-group col-sm-6">
+            <label for="resultnombreTitular">Nombre</label>
+              <input class="form-control form-control-rounded" id="resultnombreTitular" placeholder="Nombre Titular"
+                type="text" name="name" value="`+ nombreTitular +`" required readonly/>
+            </div>
+            <div class="form-group col-sm-3">
+            <label for="resultnombreMonthYear">MM/YY</label>
+              <input class="form-control form-control-rounded" placeholder="MM/YY" type="text"
+                name="expiry" id="resultnombreMonthYear" value="`+ monthYear +`" required readonly/>
+            </div>
+            <div class="form-group col-sm-3">
+              <label for="resultnombreTitular">CVC</label>
+              <input class="form-control form-control-rounded" id="resultModalCvc" placeholder="CVC" type="text"
+                name="cvc" value="`+ cvc +`" required readonly/>
+            </div>
+          </div>
+        
+        </div>
+        
+        <div id="alerta"></div>`
+
+        document.getElementById("contMetodoEnvio").innerHTML = data;
+
+        document.getElementById("newCardWrapper").innerHTML = newcardwrapper;
+        
+    } else {
+
+        nombreTitular = document.getElementById("modalNameAcount").value;
+        numeroCuenta = document.getElementById("modalNumberAcount").value;
+
+        data = `
+        
+        <div class="card-body">
+           <h3 class="text-center" id="tipoPago"><i class="fas fa-university"></i> Datos Cuenta bancaria </h3>
+           <div class="row">
+             <div class="form-group col-sm-6">
+             <label for="resultnombreTitular">Nombre Cuenta</label>
+               <input class="form-control form-control-rounded" placeholder="Nombre"
+                 type="text" name="text" id="resultnombreTitular" value="`+ nombreTitular +`" required readonly>
+             </div>
+             <div class="form-group col-sm-6">
+             <label for="resultModalnumeroCuenta">Numero Cuenta</label>
+               <input class="form-control form-control-rounded" placeholder="Numero de Cuenta"
+                 type="number" name="name" id="resultModalnumeroCuenta" value="`+ numeroCuenta +`" readonly required>
+            </div>
+        </div>
+
+        <div id="alerta"></div>`
+        
+        document.getElementById("contMetodoEnvio").innerHTML = data;
+    }
+
+}
+
+function showcard() {
+    
+    var card = new Card({
+        form: 'form',
+        container: '.card-wrapper',
+  
+        placeholders: {
+          number: '**** **** **** ****',
+          name: 'Nombre Apellido',
+          expiry: '**/**',
+          cvc: '***'
+        }
+      });
+
+ 
+}
+
+
+
+
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 
-    getJSONData("https://japdevdep.github.io/ecommerce-api/cart/654.json").then(function(resultObj){ //Llamo al json PRODUCTOS_URL
+    getJSONData("https://japdevdep.github.io/ecommerce-api/cart/654.json").then(function(resultObj){ //Llamo al json de los productos para agregar al carrito
         if (resultObj.status === "ok") {
             cart = resultObj.data;
 
@@ -157,8 +332,19 @@ document.addEventListener("DOMContentLoaded", function(e){
             subTotalProduct();
             modifyPurchaseData();
             shipping();
+            
+            
         }
     });
 
+    getJSONData(CART_BUY_URL).then(function(resultObj){ 
+        if (resultObj.status === "ok") {
+            mensaje = resultObj.data;
+
+        }
+    });
+
+
+    showcard();
 });
 
