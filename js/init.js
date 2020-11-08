@@ -41,8 +41,8 @@ var getJSONData = function (url) {
 }
 
 var urlActual = window.location.href
-var pasoPorLogin = sessionStorage.getItem("boolean");
-var emailLog = sessionStorage.getItem("email")
+var pasoPorLogin = localStorage.getItem("boolean");
+var emailLog = localStorage.getItem("email")
 
 
 function irLogin() {
@@ -54,12 +54,14 @@ irLogin();
 
 
 function signOut() {
-  localStorage.clear()
-  sessionStorage.clear()
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
     console.log('User signed out.');
-    window.location.href = "login.html"
+    sessionStorage.setItem("name", "");
+    sessionStorage.setItem("imageProfile", "");
+    localStorage.setItem("boolean", false);
+    localStorage.setItem("email", "")
+    window.location.href = "login.html";
   });
 }
 
@@ -76,15 +78,22 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   document.getElementById("dropdownMenuButtonUser").innerHTML = emailLog;
 
+  var emailUser = localStorage.getItem("email");
+  var arrayUsers = JSON.parse(localStorage.getItem("arrayUsers"));
   var imgAvatar = "";
-  var imgAvatarGoogle = sessionStorage.getItem("imageProfile");
-  var loginGoogle = sessionStorage.getItem("loginGoogle")
+  var imgUrl;
 
-  if (loginGoogle == "true") {
-    imgAvatar += `<img src= "` + imgAvatarGoogle + `" height="46px" style="border-radius: 50%"></img>`
-  } else {
-    imgAvatar += `<img src="img/Avatar2.png" height="46px"></img>`
+  for (let i = 0; i < arrayUsers.length; i++) {
+    
+    if (emailUser == arrayUsers[i].email) {
+      var imgUrl = arrayUsers[i].imgURL
+      break;
+    } 
+  
   }
+
+ imgAvatar += `<img src= "` + imgUrl + `" height="46px" width="46px" style="border-radius: 50%"></img>`
+  
 
   document.getElementById("user").innerHTML = imgAvatar;
 });
