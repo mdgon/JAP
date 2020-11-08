@@ -1,15 +1,16 @@
-var arrayUsers = JSON.parse(localStorage.getItem("arrayUsers"));
+var arrayUsers = JSON.parse(localStorage.getItem("arrayUsers")); // covierto la variable de formato JSON a un array de objetos
 
-var emailUser = localStorage.getItem("email");
+var emailUser = localStorage.getItem("email"); // esta variable obtiene el mail que se ingresa el imput del login cuando se hace click en el boton ingresar
 var imgAvatar = "";
 var imgProfile;
 
 
 function showDataUser() {
 
+  // recorro los usuarios que estan guardados y los guardo en una variable para mostrarlos luego.
   for (let i = 0; i < arrayUsers.length; i++) {
     
-    if (emailUser == arrayUsers[i].email) {
+    // se compara el mail que se ingresa en el imput del login con los mails de los usuarios guardados, si un email es igual se muestran los datos del usuario.
       email = arrayUsers[i].email
       imgProfile = arrayUsers[i].imgURL
       name = arrayUsers[i].nombre
@@ -70,16 +71,19 @@ var datosCuenta = `
       </form>
     </div>`
 
-    document.getElementById("account").innerHTML = datosCuenta;
-    document.getElementById("imgPerfilModal").innerHTML = `<img src="`+ imgProfile +`" class="avatar-perfil-modal">`
-    document.getElementById("user").innerHTML = `<img src= "` + imgProfile + `" height="46px" width="46px" style="border-radius: 50%"></img>`
+    
+    document.getElementById("account").innerHTML = datosCuenta; // agrego los datos del usuario
+    document.getElementById("imgPerfilModal").innerHTML = `<img src="`+ imgProfile +`" class="avatar-perfil-modal">` // agrego la imagen del usuario en la pagina de mi perfil
+    document.getElementById("user").innerHTML = `<img src= "` + imgProfile + `" height="46px" width="46px" style="border-radius: 50%"></img>`  //agrego la imagen del usuario en menu de navegacion
 }
 
 function uploadIMG() {
   let img;
 
+  // recorro los usuarios que estan guardados
   for (let i = 0; i < arrayUsers.length; i++) {
     
+    // se compara el mail que se ingresa en el imput del login con los mails de los usuarios guardados, si es igual se obtiene el valor del imput que tiene la URL de la imagen y se guarda
     if (emailUser == arrayUsers[i].email) {
       img = document.getElementById("URL-imagen").value;
       arrayUsers[i].imgURL = img;
@@ -108,8 +112,9 @@ document.getElementById("alert").innerHTML  = alert;
 
 function saveDataUser(){
 
+  // recorro los usuarios que estan guardados
   for (let i = 0; i < arrayUsers.length; i++) {
-    
+    // se compara el mail que se ingresa en el imput del login con los mails de los usuarios guardados, si es igual guardo los nuevos datos en el objeto correspondiente al usuario
     if (emailUser == arrayUsers[i].email) {
       arrayUsers[i].nombre = document.getElementById("account-name").value;
       arrayUsers[i].edad = document.getElementById("account-age").value;
@@ -117,7 +122,7 @@ function saveDataUser(){
       break;
     } 
   } 
-  localStorage.setItem("arrayUsers", JSON.stringify(arrayUsers));
+  localStorage.setItem("arrayUsers", JSON.stringify(arrayUsers)); // paso el array de objetos a formato JSON y lo guardo en el LocalStorage
   showAlert();
 }
 
