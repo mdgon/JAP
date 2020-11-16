@@ -11,6 +11,7 @@ function showDataUser() {
   for (let i = 0; i < arrayUsers.length; i++) {
     
     // se compara el mail que se ingresa en el imput del login con los mails de los usuarios guardados, si un email es igual se muestran los datos del usuario.
+    if (emailUser == arrayUsers[i].email) {
       email = arrayUsers[i].email
       imgProfile = arrayUsers[i].imgURL
       name = arrayUsers[i].nombre
